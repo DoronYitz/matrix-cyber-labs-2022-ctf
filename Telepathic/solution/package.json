@@ -1,0 +1,28 @@
+{
+  "name": "telepathic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "prettier:write": "prettier --write \"./**/*.{js,ts}\"",
+    "dev": "ts-node-dev --respawn --transpile-only ./src/index.ts",
+    "start": "node ./dist/index.js",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aes-js": "^3.1.1",
+    "@types/node": "^16.11.7",
+    "@typescript-eslint/eslint-plugin": "^5.21.0",
+    "@typescript-eslint/parser": "^5.21.0",
+    "eslint": "^8.14.0",
+    "prettier": "^2.6.2",
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "netcat": "^1.5.0"
+  }
+}
