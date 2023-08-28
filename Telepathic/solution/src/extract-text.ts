@@ -5,16 +5,9 @@
  * @returns prime, generator and alice key
  */
 function extractPGA(message: string) {
-  let numsInBrackets = message
-    .match(/\(\d.*?\)/g)[0]
-    .replace(/[{()}]/g, "")
-    .split(", ");
-  let prime = +numsInBrackets[0];
-  let generator = +numsInBrackets[1];
-  let equalsIndex = message.lastIndexOf("=");
-  let dollarIndex = message.lastIndexOf("$");
-  let aliceKey = +message.slice(equalsIndex + 2, dollarIndex - 1).trim();
-  return { prime, generator, aliceKey };
+  let [, prime, generator] = message.match(/p, g = \((\d+), (\d+)\)/);
+  let [, aliceKey] = message.match(/A = (\d+)/);
+  return { prime: +prime, generator: +generator, aliceKey: +aliceKey };
 }
 
 /**
